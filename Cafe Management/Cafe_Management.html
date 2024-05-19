@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Management</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .window {
+        padding: 0;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        background-image: url(cafeteria.avif);
+        background-repeat: no-repeat;
+        background-position: 80%;
+        background-size: fill;
+      }
+      legend {
+        font-size: 20px;
+      }
+      .select {
+        display: flex;
+        justify-content: center;
+      }
+      .b1 {
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
+        margin: 20px;
+        margin-left: 45vw;
+        border-radius: 15px;
+        background: linear-gradient(#fca5f1, #b5ffff);
+      }
+      .b2 {
+        margin: 20px 45%;
+        width: 150px;
+        height: 40px;
+        font-size: 20px;
+        border-radius: 15px;
+        background: linear-gradient(#fca5f1, #b5ffff);
+      }
+      #n2 {
+        margin-left: 50%;
+      }
+      .display {
+        margin: auto;
+        width: 60vw;
+      }
+      input[type="text"] {
+        width: 200px;
+        height: 30px;
+      }
+      input[type="number"] {
+        width: 60px;
+        height: 25px;
+      }
+      label {
+        font-size: 20px;
+      }
+      .l1 {
+        font-size: 30px;
+      }
+      .cost {
+        width: 60vw;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="window">
+      <form name="frm1">
+        <fieldset>
+          <legend>Cafe Menu</legend>
+          <div class="select">
+            <label for="s1" class="l1">Select an Item : &nbsp;</label>
+            <select name="s1">
+              <option></option>
+              <option value="Coffee">Coffee ₹20/-</option>
+              <option value="Tea">Tea ₹10/-</option>
+              <option value="Cold Drink">Cold Drink ₹40/-</option>
+              <option value="Snacks">Snacks ₹30/-</option>
+            </select>
+          </div>
+          <input type="button" class="b1" onclick="order()" value="Order" />
+        </fieldset>
+      </form>
+      <br /><br />
+      <form name="frm2">
+        <fieldset>
+          <div class="display">
+            <label for="n1">Your Item is : </label>
+            <input type="text" name="n1" readonly />
+
+            <label for="n2" id="n2">Quantity : </label>
+            <input type="number" name="n2" max=30 min=1 /><br />
+
+            <input
+              type="button"
+              class="b2"
+              onclick="calculate(document.frm2.n2.value)"
+              value="Calculate"
+            />
+          </div>
+          <div class="cost">
+            <label for="n3">Cost of item : </label>
+            <input type="text" name="n3" readonly />
+
+            <label for="n4">GST on Price : </label>
+            <input type="text" name="n4" readonly />
+
+            <label for="n5">Total Cost : </label>
+            <input type="text" name="n5" readonly />
+          </div>
+        </fieldset>
+      </form>
+    </div>
+    <script>
+      function order() {
+        document.frm2.n1.value = document.frm1.s1.value;
+      }
+
+      function calculate(qty) {
+        let percost = 0;
+        switch (document.frm1.s1.value) {
+          case "Coffee":
+            percost = 20;
+            break;
+          case "Tea":
+            percost = 10;
+            break;
+          case "Cold Drink":
+            percost = 40;
+            break;
+          case "Snacks":
+            percost = 30;
+            break;
+        }
+        let cost = document.frm2.n3.value = qty * percost;
+        let gst = document.frm2.n4.value = (cost * 18) / 100;
+        document.frm2.n5.value = cost + gst;
+      }
+    </script>
+  </body>
+</html>
