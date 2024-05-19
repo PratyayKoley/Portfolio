@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank System</title>
+    <style>
+      #div1 {
+        margin: auto;
+        width: 400px;
+        height: 200px;
+        border: 1px solid black;
+        display: none;
+      }
+      .buttons {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 50px;
+      }
+      p {
+        margin-left: 10px;
+      }
+      button {
+        width: 200px;
+        height: 50px;
+        border-radius: 25px;
+        border: none;
+        background-color: aqua;
+        font-size: 17px;
+        border: 2px solid darkgray;
+      }
+      button:hover {
+        background-color: #75bfec;
+        color: #ffffff;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="div1">
+      <p id="p1"></p>
+      <p id="p2"></p>
+      <p id="p3"></p>
+      <p id="p4"></p>
+      <p id="p5"></p>
+    </div>
+
+    <div class="buttons">
+      <button onclick="deposit()">Deposit</button>
+      <button onclick="withdraw()">Withdraw</button>
+      <button onclick="checkbal()">Balance</button>
+    </div>
+
+    <script src="Bank_System.js"></script>
+  </body>
+</html>
