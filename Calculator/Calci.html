@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        .calci{
+            margin: auto;
+            width: 40vw;
+            height: 80vh;
+            border: 2px solid #000000;
+            display: grid;
+            grid-template-rows: repeat(8,10vh);
+            grid-template-columns: repeat(4,10vw);
+            background-color: #D3D3D3;
+        }
+        .screen{
+            grid-row : 1/4;
+            grid-column : 1/5;
+            border: 1px solid #000000;
+            font-size: 80px;
+            margin: 10px;
+            background-color: #3A3B3C;
+            color: #FFFFFF;
+            padding-left: 10px;
+        }
+        .C{
+            grid-row: 4/5;
+            grid-column: 1/2;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .CE{
+            grid-row: 4/5;
+            grid-column: 2/3;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .modulo{
+            grid-row: 4/5;
+            grid-column: 3/4;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .divide{
+            grid-row: 4/5;
+            grid-column: 4/5;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .seven{
+            grid-row: 5/6;
+            grid-column: 1/2;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .eight{
+            grid-row: 5/6;
+            grid-column: 2/3;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .nine{
+            grid-row: 5/6;
+            grid-column: 3/4;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .add{
+            grid-row: 5/6;
+            grid-column: 4/5;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .four{
+            grid-row: 6/7;
+            grid-column: 1/2;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .five{
+            grid-row: 6/7;
+            grid-column: 2/3;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .six{
+            grid-row: 6/7;
+            grid-column: 3/4;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sub{
+            grid-row: 6/7;
+            grid-column: 4/5;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .one{
+            grid-row: 7/8;
+            grid-column: 1/2;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .two{
+            grid-row: 7/8;
+            grid-column: 2/3;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .three{
+            grid-row: 7/8;
+            grid-column: 3/4;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .mul{
+            grid-row: 7/8;
+            grid-column: 4/5;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .zero{
+            grid-row: 8/9;
+            grid-column: 1/3;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .decimal{
+            grid-row: 8/9;
+            grid-column: 3/4;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .equal{
+            grid-row: 8/9;
+            grid-column: 4/5;
+            font-size: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="calci">
+        <input type="text" id="result" class="screen" value="" readonly />
+        <button class="C" onclick="erase()">C</button>
+        <button class="CE" onclick="eraselast()">CE</button>
+        <button class="modulo" onclick="symbol('%')">%</button>
+        <button class="divide" onclick="symbol('/')">/</button>
+        <button class="seven" onclick="number('7')">7</button>
+        <button class="eight" onclick="number('8')">8</button>
+        <button class="nine" onclick="number('9')">9</button>
+        <button class="add" onclick="symbol('+')">+</button>
+        <button class="four" onclick="number('4')">4</button>
+        <button class="five" onclick="number('5')">5</button>
+        <button class="six" onclick="number('6')">6</button>
+        <button class="sub" onclick="symbol('-')">-</button>
+        <button class="one" onclick="number('1')">1</button>
+        <button class="two" onclick="number('2')">2</button>
+        <button class="three" onclick="number('3')">3</button>
+        <button class="mul" onclick="symbol('*')">X</button>
+        <button class="zero" onclick="number('0')">0</button>
+        <button class="decimal" onclick="symbol('.')">.</button>
+        <button class="equal" onclick="calculate()">=</button>
+    </div>
+    
+    <script>
+        let result = document.getElementById('result'); 
+
+        function erase()
+        {
+            result.value = "";
+        }
+
+        // function eraselast()
+        // {
+        //     length = result.value.length;
+        //     result.value(length) = " ";
+        // }
+
+        function symbol(symbol)
+        {
+            result.value += symbol;
+        }
+
+        function number(number)
+        {
+            result.value += number;
+        }
+
+        function calculate()
+        {
+            result.value = eval(result.value);
+        }
+    </script>
+</body>
+</html>
